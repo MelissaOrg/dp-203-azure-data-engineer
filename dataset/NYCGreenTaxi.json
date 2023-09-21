@@ -1,0 +1,20 @@
+{
+	"name": "NYCGreenTaxi",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "NYCHTTP",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "/trip-data/green_tripdata_2023-01.parquet"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

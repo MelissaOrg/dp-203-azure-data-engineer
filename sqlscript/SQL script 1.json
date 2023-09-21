@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')\n\nCREATE TABLE dbo.NYCTaxiTripSmall\n    (\n        [VendorID] bigint,\n        [lpep_pickup_datetime] bigint,\n        [lpep_dropoff_datetime] bigint,\n        [store_and_fwd_flag] nvarchar(4000),\n        [RatecodeID] float,\n        [PULocationID] bigint,\n        [DOLocationID] bigint,\n        [passenger_count] float,\n        [trip_distance] float,\n        [fare_amount] float,\n        [extra] float,\n        [mta_tax] float,\n        [tip_amount] float,\n        [tolls_amount] float,\n        [ehail_fee] int,\n        [improvement_surcharge] float,\n        [total_amount] float,\n        [payment_type] float,\n        [trip_type] float,\n        [congestion_surcharge] float\n    )\nWITH\n    (\n    DISTRIBUTION = ROUND_ROBIN,\n     CLUSTERED COLUMNSTORE INDEX\n     -- HEAP\n    )\nGO\n\nCOPY INTO dbo.NYCTaxiTripSmall\n(\n    VendorID 1, lpep_pickup_datetime 2, lpep_dropoff_datetime 3, store_and_fwd_flag 4, RatecodeID 5, PULocationID 6, \n    DOLocationID 7, passenger_count 8, trip_distance 9, fare_amount 10, extra 11, mta_tax 12, tip_amount 13, \n    tolls_amount 14, ehail_fee 15, improvement_surcharge 16, total_amount 17, payment_type 18, trip_type 19, \n    congestion_surcharge 20)\nFROM 'https://datalakemvi.dfs.core.windows.net/datalakecontainer1/bronze/NYCtaxis/green/202301.parquet'\nWITH\n(\n    FILE_TYPE = 'PARQUET'\n    ,MAXERRORS = 0\n    ,IDENTITY_INSERT = 'OFF'\n)",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "SQLPOOL1",
+				"poolName": "SQLPOOL1"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

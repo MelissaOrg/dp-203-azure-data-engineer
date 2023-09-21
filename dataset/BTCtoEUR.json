@@ -1,0 +1,43 @@
+{
+	"name": "BTCtoEUR",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MVI Datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(utcnow(),'.json')",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat('bronze/Bitcoin/Currency/', utcnow('yyyy'), '/',utcnow('MM'), '/', utcnow('dd'))",
+					"type": "Expression"
+				},
+				"fileSystem": "datalakecontainer1"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"symbol": {
+					"type": "string"
+				},
+				"price_24h": {
+					"type": "integer"
+				},
+				"volume_24h": {
+					"type": "number"
+				},
+				"last_trade_price": {
+					"type": "integer"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

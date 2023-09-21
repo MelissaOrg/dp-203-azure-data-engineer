@@ -1,0 +1,35 @@
+{
+	"name": "BitcoinToEur",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GetBitcoinCurrency",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "tickers/BTC-EUR"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"symbol": {
+					"type": "string"
+				},
+				"price_24h": {
+					"type": "number"
+				},
+				"volume_24h": {
+					"type": "number"
+				},
+				"last_trade_price": {
+					"type": "number"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

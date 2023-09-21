@@ -1,0 +1,25 @@
+{
+	"name": "GetBTCtoEurEveryMinute",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "GetBtcToEur",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2023-09-12T10:10:00",
+				"endTime": "2023-09-13T10:10:25",
+				"timeZone": "Romance Standard Time"
+			}
+		}
+	}
+}

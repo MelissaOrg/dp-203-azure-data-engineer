@@ -1,0 +1,12 @@
+{
+	"name": "NYCTaxiWs",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "PowerBIWorkspace",
+		"typeProperties": {
+			"workspaceID": "b1fb3095-9926-4d98-888c-7a2d49eba095",
+			"tenantID": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		}
+	}
+}

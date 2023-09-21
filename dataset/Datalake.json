@@ -1,0 +1,22 @@
+{
+	"name": "Datalake",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MVI Datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "202301.parquet",
+				"folderPath": "bronze/NYCtaxis/green",
+				"fileSystem": "datalakecontainer1"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [passenger_count]\n,[SumTripDistance]\n,[AvgTripDistance]\n FROM [dbo].[PassengerCountStats]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "SQLPOOL1",
+				"poolName": "SQLPOOL1"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

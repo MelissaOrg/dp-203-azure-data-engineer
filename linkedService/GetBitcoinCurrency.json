@@ -1,0 +1,28 @@
+{
+	"name": "GetBitcoinCurrency",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"description": "get bitcoin in euros",
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://api.blockchain.com/v3/exchange/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"X-API-Token": {
+					"type": "AzureKeyVaultSecret",
+					"store": {
+						"referenceName": "KeyVaultmvi",
+						"type": "LinkedServiceReference"
+					},
+					"secretName": "bitcoinapikey"
+				}
+			}
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
